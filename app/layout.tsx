@@ -15,6 +15,9 @@ export const metadata: Metadata = buildMetadata({
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preload" as="video" href="/videos/ZJCarpentry_SlowMo.mp4" type="video/mp4" />
+      </head>
       <body>
         <SchemaScript data={localBusinessSchema()} />
         <SiteHeader />

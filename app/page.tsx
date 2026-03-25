@@ -66,8 +66,8 @@ export default function HomePage() {
             loop
             muted
             playsInline
-            poster={photoLibrary.hero}
-            preload="metadata"
+            preload="auto"
+            aria-hidden="true"
           >
             <source src="/videos/ZJCarpentry_SlowMo.mp4" type="video/mp4" />
           </video>
