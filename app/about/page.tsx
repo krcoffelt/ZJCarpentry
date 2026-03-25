@@ -13,7 +13,10 @@ export default function AboutPage() {
       <div className="shell page-hero">
         <div>
           <p className="eyebrow">About</p>
-          <h1>Kansas City carpentry with a practical approach.</h1>
+          <h1 className="two-line-lock">
+            <span>Kansas City Contractor</span>
+            <span>For Decks And Remodels</span>
+          </h1>
           <p className="hero-copy">
             ZJ Carpentry focuses on decks, remodels, and interior carpentry for
             homeowners who want clear communication and a straightforward quote process.

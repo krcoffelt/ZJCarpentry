@@ -93,7 +93,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <div className="shell editorial-intro">
           <div>
             <p className="eyebrow">Related Projects</p>
-            <h2>Examples that support this service.</h2>
+            <h2>Recent projects for this service.</h2>
           </div>
           <p className="section-copy">Recent work helps qualify the lead faster.</p>
         </div>
@@ -125,7 +125,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <div className="shell contact-page">
           <div>
             <p className="eyebrow">Get Quote</p>
-            <h2 className="section-title">Request a quote for {service.serviceName.toLowerCase()}.</h2>
+            <h2 className="section-title">Request A Quote.</h2>
           </div>
           <QuoteForm />
         </div>

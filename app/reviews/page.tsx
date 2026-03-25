@@ -15,7 +15,10 @@ export default function ReviewsPage() {
       <div className="shell lead-grid">
         <div>
           <p className="eyebrow">Word of Mouth</p>
-          <h1>Review language that sounds like real buying criteria.</h1>
+          <h1 className="two-line-lock">
+            <span>Kansas City</span>
+            <span>Homeowner Reviews</span>
+          </h1>
         </div>
         <p>
           Reliability, clear communication, professionalism, and visible project

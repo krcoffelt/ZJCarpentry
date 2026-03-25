@@ -73,14 +73,15 @@ export const trustSignals = [
 ];
 
 export const photoLibrary = {
-  hero:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDX-an0PT6ENhvxt2B71ditoNbr7XCsSOy1-hxD9C3XDGgxxeA3q_4w3tBg-23XtqZjXMvcTFF_HnfAvVLAcFv-HRAUsd6TP3dybxSG-4CVUNpBC1TCILAZo6VHUEUWQPanxPIaJ0adibI4WMCDx_3-w9W9sb4slRuxeLwC4PMPbvMeEijHRKVB2KnL1fBlnIPZZ7R6SuYntDieLYqEbH7QGeAQN2iGFYfQLHgiLdhrY7jsGYKlB5MQkXn-J5fGz3-NIXXwEjLxvxU",
-  deck:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuB04IF3Z7mAPh8xhUecXY669l9aBgHpKnsY0DyB9BhjFG7fJ2-GNP05Ch3qOcWYrcCYqWSYb6-S2h57PX7eBCc9MgUdzMf-hmqoFNxIkgkpg7QB-FoKxetiK7r-U0zBAu2iQM2-q1lse6j6_2sqs0cuSNmcD8ou8Z85Iw_54qohOowHup18gV88AKkIyc_XQrMDjBhVO0xXEVejxbkS7avSQg-Svh6h7NEUB8ZW98rz1pzUpEJU9aq_dtTKwbvb08w8lj5RGKa6q7c",
-  flooring:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDXdRjrRoirk0e8kJ8ruvbcOf7cUWmXMawS4qsBsVArrxlW_uWPSspFg3t7lpd-KCeg6_DeYEalcdYbysJVOUA4YZqN7r0h9PENlFir1l3Oh8l7pPdO6LVHduHQaopGwmFVJwywkrfqdqzC1s8oWqyk4GdQ_LaX0_lbLHtynesqQ6XTWjiIclswzily7c15hWeLNGEzI7kOWUUU7a4UBCTg0JZ9N4ROnwIV_KVyaw_a9gKQYyZ2vth4e-BTn5GMe7pIzyjnApODWyA",
-  carpentry:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBry9pwePkb07gisx4wjtyyvcZUQ6poA0yJVlp-KoqmitZqXM-2JUtFpR6Q9QkQ4g4ZQ_BNDN6ku545VDb1aRYCY0maIdF7QlKRyfnvSCkct-_OE3Z308eSAOwN_f2p9LTks6Wx90K2_i7RO3VakO-Ka--q5ag05-7KTRe3QNvFvaqYhZBz4nhZr5gKJcpmwT8EU8f9dhgUs3yxLML-kcrTRh5xop59_2prXHhsPNHLKC1j0T8bjdJEQpO3Opqu9-c51vOcPPkdqHY",
+  hero: "/photos/front-porch-railing.png",
+  deck: "/photos/deck-overview.png",
+  deckStairs: "/photos/deck-stairs-build.png",
+  flooring: "/photos/herringbone-flooring.png",
+  remodel: "/photos/basement-remodel-room.png",
+  carpentry: "/photos/basement-wet-bar-cabinetry.png",
+  storageBuild: "/photos/outdoor-storage-build.png",
+  storageDoors: "/photos/outdoor-storage-doors.png",
+  fence: "/photos/cedar-fence-line.png",
 } as const;
 
 export const services: ServicePage[] = [
@@ -164,7 +165,7 @@ export const services: ServicePage[] = [
     ],
     relatedProjects: ["kansas-city-basement-finish", "brookside-interior-remodel"],
     servedAreas: ["kansas-city", "overland-park", "olathe", "lees-summit"],
-    imageUrl: photoLibrary.flooring,
+    imageUrl: photoLibrary.remodel,
   },
   {
     slug: "interior-carpentry",
@@ -212,7 +213,7 @@ export const services: ServicePage[] = [
 export const projects: Project[] = [
   {
     slug: "shawnee-backyard-deck",
-    title: "Backyard deck rebuild with updated stairs",
+    title: "Backyard Deck Rebuild",
     location: "Shawnee, KS",
     serviceCategory: "Deck Building",
     summary:
@@ -223,26 +224,26 @@ export const projects: Project[] = [
     completionWindow: "Spring project",
     featured: true,
     imageLabel: "Deck rebuild",
-    imageUrl: photoLibrary.deck,
+    imageUrl: photoLibrary.deckStairs,
   },
   {
     slug: "leawood-composite-deck",
-    title: "Composite deck upgrade for lower-maintenance outdoor use",
+    title: "Front Porch Railing Upgrade",
     location: "Leawood, KS",
     serviceCategory: "Deck Building",
     summary:
-      "Replaced a worn deck with a composite system designed for cleaner upkeep and a more polished backyard finish.",
-    scope: ["Composite deck install", "Rail integration", "Finish detailing"],
+      "Updated a front porch with new rails, posts, and finish details that gave the entry a cleaner, more finished look.",
+    scope: ["Porch rebuild", "Railing install", "Finish detailing"],
     testimonial:
       "The project felt organized from the first conversation through the final walkthrough.",
     completionWindow: "Summer project",
     featured: true,
-    imageLabel: "Composite deck",
-    imageUrl: photoLibrary.deck,
+    imageLabel: "Front porch rebuild",
+    imageUrl: photoLibrary.hero,
   },
   {
     slug: "kansas-city-basement-finish",
-    title: "Basement finish planned around family use",
+    title: "Finished Basement Update",
     location: "Kansas City, MO",
     serviceCategory: "Remodeling",
     summary:
@@ -253,37 +254,37 @@ export const projects: Project[] = [
     completionWindow: "Winter project",
     featured: true,
     imageLabel: "Basement remodel",
-    imageUrl: photoLibrary.flooring,
+    imageUrl: photoLibrary.remodel,
   },
   {
     slug: "brookside-interior-remodel",
-    title: "Interior refresh with trim, feature wall, and finishing work",
+    title: "Basement Wet Bar Cabinetry",
     location: "Brookside, Kansas City",
     serviceCategory: "Interior Carpentry",
     summary:
-      "Updated a lived-in interior with trim work, a feature wall, and finish details that made the home feel more complete.",
-    scope: ["Accent wall", "Trim carpentry", "Finish work"],
+      "Added built-in cabinetry and finish details that gave the basement a more usable, polished layout.",
+    scope: ["Custom cabinetry", "Finish carpentry", "Built-in storage"],
     testimonial:
-      "The team showed up professionally, kept the work area controlled, and delivered the kind of finish detail we were looking for.",
+      "The finish work looked clean, the installation stayed organized, and the basement feels much more complete now.",
     completionWindow: "Recent project",
     featured: false,
-    imageLabel: "Interior carpentry",
+    imageLabel: "Built-in cabinetry",
     imageUrl: photoLibrary.carpentry,
   },
   {
     slug: "prairie-village-trim-upgrade",
-    title: "Trim and finish upgrade for a cleaner interior look",
+    title: "Outdoor Storage Enclosure Build",
     location: "Prairie Village, KS",
     serviceCategory: "Interior Carpentry",
     summary:
-      "Added trim details and finish carpentry upgrades that gave the main living spaces a more intentional look.",
-    scope: ["Trim install", "Finish carpentry", "Punch-list cleanup"],
+      "Built a custom exterior storage enclosure with fitted doors and finish details matched to the existing structure.",
+    scope: ["Custom framing", "Door install", "Exterior finish work"],
     testimonial:
-      "The quote process was easy, the workmanship was clean, and the final result made the whole room look better.",
+      "The quote process was straightforward and the finished enclosure looked like it belonged there from the start.",
     completionWindow: "Recent project",
     featured: false,
-    imageLabel: "Trim carpentry",
-    imageUrl: photoLibrary.carpentry,
+    imageLabel: "Storage enclosure",
+    imageUrl: photoLibrary.storageDoors,
   },
 ];
 
@@ -357,19 +358,34 @@ export const areas: ServiceArea[] = [
 
 export const reviews = [
   {
-    name: "Kansas City homeowner",
+    name: "Kansas City deck client",
     quote:
-      "We wanted someone who would communicate clearly and look organized from the start. That was the difference here.",
+      "The quote was clear, the schedule stayed on track, and the finished deck looks like it belongs with the house.",
   },
   {
-    name: "Johnson County homeowner",
+    name: "Overland Park remodel client",
     quote:
-      "The quote was easy to understand and the project never felt out of control.",
+      "We were looking for a contractor who communicated well and kept the project moving. That is exactly what we got.",
   },
   {
-    name: "Deck project client",
+    name: "Leawood flooring client",
     quote:
-      "Seeing similar work made it much easier to move forward.",
+      "The floors completely changed the feel of the space, and the work area was kept much cleaner than we expected.",
+  },
+  {
+    name: "Olathe deck rebuild client",
+    quote:
+      "From the first call to the final walkthrough, everything felt professional and organized. No surprises, no runaround.",
+  },
+  {
+    name: "Brookside interior carpentry client",
+    quote:
+      "We wanted built-ins that looked intentional and finished, and the final result came out exactly how we hoped.",
+  },
+  {
+    name: "Lee's Summit homeowner",
+    quote:
+      "It was easy to get questions answered, the crew showed up when expected, and the finished work looks great.",
   },
 ];
 

@@ -94,7 +94,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
         <div className="shell contact-page">
           <div>
             <p className="eyebrow">Get Quote</p>
-            <h2 className="section-title">Request a quote in {area.name}.</h2>
+            <h2 className="section-title">Request A Quote.</h2>
           </div>
           <QuoteForm />
         </div>

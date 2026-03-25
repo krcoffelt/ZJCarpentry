@@ -15,7 +15,7 @@ export default function ProjectsPage() {
       <div className="shell lead-grid">
         <div>
           <p className="eyebrow">Projects</p>
-          <h1>Recent deck, remodel, and interior work.</h1>
+          <h1>Recent Kansas City Projects.</h1>
         </div>
         <p>Examples of the kinds of projects homeowners ask about most.</p>
       </div>

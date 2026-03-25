@@ -422,12 +422,23 @@ h4 {
   margin-bottom: 2rem;
 }
 
-.editorial-intro h2,
+.editorial-intro h2 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 0.95;
+  max-width: 13ch;
+}
+
 .lead-grid h1 {
   margin: 0;
   font-size: clamp(2.4rem, 5vw, 4.8rem);
   line-height: 0.95;
-  max-width: 9ch;
+  max-width: 15ch;
+}
+
+.two-line-lock span {
+  display: block;
+  white-space: nowrap;
 }
 
 .services-page-title {
@@ -532,6 +543,14 @@ h4 {
 
 .project-card:nth-child(2) .project-image,
 .project-card:nth-child(3) .project-image {
+  min-height: 260px;
+}
+
+.service-grid .project-card {
+  grid-template-columns: 1fr;
+}
+
+.service-grid .project-image {
   min-height: 260px;
 }
 
@@ -1480,6 +1499,10 @@ h4 {
   color: #ffffff;
 }
 
+.desktop-testimonial-intro h2 {
+  max-width: 12ch;
+}
+
 .desktop-section-rule {
   width: 6rem;
   height: 0.35rem;
@@ -1734,9 +1757,9 @@ h4 {
 
 .desktop-testimonial-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.95fr);
+  grid-template-columns: minmax(340px, 0.72fr) minmax(0, 1fr);
   gap: 4rem;
-  align-items: center;
+  align-items: start;
 }
 
 .desktop-testimonial-intro {
@@ -1744,22 +1767,15 @@ h4 {
   gap: 1.5rem;
 }
 
-.desktop-testimonial-controls {
-  display: flex;
-  gap: 1rem;
-}
-
-.desktop-testimonial-controls button {
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid rgba(250, 204, 21, 0.5);
-  background: transparent;
-  color: #facc15;
-  font-size: 1.5rem;
+.desktop-testimonial-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
 }
 
 .desktop-testimonial-card {
-  padding: 2.5rem;
+  height: 100%;
+  padding: 2rem;
   background: #27272a;
   border: 1px solid rgba(63, 63, 70, 0.24);
   border-radius: 0.25rem;
@@ -1772,23 +1788,14 @@ h4 {
 }
 
 .desktop-testimonial-quote {
-  margin: 0 0 2rem;
-  font-size: 1.2rem;
-  font-style: italic;
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
   color: #e4e4e7;
+  line-height: 1.7;
 }
 
 .desktop-testimonial-person {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.desktop-testimonial-avatar {
-  width: 3.5rem;
-  height: 3.5rem;
-  padding: 2px;
-  background: #3f3f46;
+  display: block;
 }
 
 .desktop-testimonial-person strong {
@@ -1933,6 +1940,10 @@ h4 {
   .desktop-hero-content,
   .desktop-testimonial-grid,
   .desktop-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .desktop-testimonial-list {
     grid-template-columns: 1fr;
   }
 

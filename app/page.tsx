@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
-import { company, photoLibrary } from "@/lib/site-data";
+import { company, photoLibrary, reviews } from "@/lib/site-data";
 
 export const metadata = buildMetadata({
   title: "Kansas City Deck and Remodeling Contractor",
@@ -14,8 +14,7 @@ const serviceCards = [
     body: "Deck construction and rebuilds designed for durability, clean installation, and long-term outdoor use.",
     cta: "Learn More",
     href: "/services/deck-building",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCQRDzDwSSyAUQO4IoI19Yx5i5jJBxue7r5MEY3rLW8cMj7yFslLg_6ugJHtC8lu5fpXvWnPnnt9ajMe8uORkT5aSCTt1MqQ53i0f_kAinQBZbsv3ddXlUm7vc9hwf835lw6if-0bjzypnd4Slg6d4X6CgJm3KkFQ3Xn3VoJTNKkhHzkazsdha_3Fotc0ruFL6dpMq-zBzhtGN6wC2IXa8gDfznFZYN9Z8RfB8oDzCn6LH_sMYiT4x5yJDVpMQe8JySVv2sMTZ9XsI",
+    image: photoLibrary.deckStairs,
     alt: "Custom deck",
   },
   {
@@ -56,13 +55,15 @@ const processItems = [
 ];
 
 export default function HomePage() {
+  const featuredReviews = reviews.slice(0, 6);
+
   return (
     <div className="desktop-page">
       <section className="desktop-hero">
         <div className="desktop-hero-media">
           <img
-            alt="High-end wooden deck"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuALl8er31rAC-aqy7lKS3js2G3qvzDQ0cLjI0YCfjpGYAHvFZocNpZQ_ybC6fjXUL4TgTwz_v26Oa4v6WOr_fpAeWHVy5YbmekVm4T1DkBZT_MxznonTlS4s-4suUzNKd06AnLcNLEqkz5EzAkBtrhGGAeQvDlDPSXNDvVHuKsUObWjHFKJ6dO3u-szTKoskBLshAZbS2U7eDy0ue_GezEJXrqCZ0LYJSfHpObvh55W_zVd8mbRy47xaoQ_xCqOgIB0Te0hOZ53Kz8"
+            alt="Front porch railing project"
+            src={photoLibrary.hero}
           />
         </div>
         <div className="desktop-hero-overlay" />
@@ -136,8 +137,8 @@ export default function HomePage() {
 
             <article className="desktop-wide-image-card">
               <img
-                alt="Woodworking detail"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw-GYZmT24sQNIE6l-1uxxxa2VTb4HvaEDVzwD7LXXcQLt3whdeTKWD--4zZ5Qo1nqFoBm4W3q6LegH-mLBWpKparn_YyhsmKzZxwNjvCtQQhhwqWacghwd0LEEj6bwJmRKcT1O41ZeXtGiU2TtPQPZNb8fdaD2_sJb8y-3Ys91RLHfQFaaZyIGoKM5SWDfFqzogddexxCWmR1gZGX6OibrRLU6Ip_LPNW0JAtaNj0Z0R2I2XdArD9LbSptgab73pbT_CXw5JdOOQ"
+                alt="Built-in basement cabinetry"
+                src={photoLibrary.carpentry}
               />
               <div className="desktop-wide-image-overlay" />
               <div className="desktop-wide-image-title">Recent Project Work</div>
@@ -174,35 +175,26 @@ export default function HomePage() {
       <section className="desktop-section" id="testimonials">
         <div className="desktop-shell desktop-testimonial-grid">
           <div className="desktop-testimonial-intro">
-            <h2>Word of Mouth from Kansas City Homeowners</h2>
+            <h2 className="two-line-lock">
+              <span>What Homeowners Say</span>
+              <span>In Kansas City</span>
+            </h2>
             <p>
               Homeowners remember clear communication, professional work, and a
               finished result that looks right.
             </p>
-            <div className="desktop-testimonial-controls">
-              <button type="button">‹</button>
-              <button type="button">›</button>
-            </div>
           </div>
-          <article className="desktop-testimonial-card">
-            <div className="desktop-stars">★★★★★</div>
-            <p className="desktop-testimonial-quote">
-              "The deck turned out great, the crew communicated well, and the
-              whole project felt organized from start to finish."
-            </p>
-            <div className="desktop-testimonial-person">
-              <div className="desktop-testimonial-avatar">
-                <img
-                  alt="Client portrait"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc6IKRBdIK_9JbcOOPZIm7rXiEF0o2usoxf3XZWc2AGvzKsrwlEcCeA6CpA_gaWnrnewxMuYsR9wRtZRNdb9EpGJ7yL-MPWWWPQFmRlX3bO-QSJJkETmIQoG9LkXOQbVFM-MR7nyIirmUJIXD_loAQ23BP1QJ3Y9UREZgZlzbdP5Hgu9nw33IkQVcYH3qPBB5xvEYHTHOWV5cPQ8eYr_3bDKS6x8FDGfE5Twkg0SkKXUc2lR3elNs6I6PdVRp8ejBNqrYQos3kKgA"
-                />
-              </div>
-              <div>
-                <strong>David Henderson</strong>
-                <small>Kansas City Homeowner</small>
-              </div>
-            </div>
-          </article>
+          <div className="desktop-testimonial-list">
+            {featuredReviews.map((review) => (
+              <article key={review.name} className="desktop-testimonial-card">
+                <div className="desktop-stars">★★★★★</div>
+                <p className="desktop-testimonial-quote">"{review.quote}"</p>
+                <div className="desktop-testimonial-person">
+                  <strong>{review.name}</strong>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -210,8 +202,8 @@ export default function HomePage() {
         <div className="desktop-shell">
           <div className="desktop-cta-card">
             <img
-              alt="Wood texture"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrm3eyN2cfzsXjs3dJnkYyaTOqhdl2w5rnLYCMfQ5zhpkZs1mpKmHnIi5jxwqw7PPoja61YVrI-HeoKnTuFZkZlPJr1gbMQ1Tdvc9b2wq9-vs_vRbOWY_wzrmUI7KER3Uz0pMUumkOomIX4FedoaBl9a8GFJc3g-QGSBarzOjpHwd1_vZg4-gnKge0kabbXFM_BFTEhD7irbxQh_IzZwwy-lsUOR1Tm5vt_iYWzLBMPSQ00BguZJp4pmKtSbV2FUEvPZXe5WDC3-o"
+              alt="Custom deck stairs and railing"
+              src={photoLibrary.deckStairs}
             />
             <div className="desktop-cta-overlay" />
             <div className="desktop-cta-content">
