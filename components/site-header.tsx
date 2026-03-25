@@ -9,7 +9,7 @@ export function SiteHeader() {
           <span>Z &amp; J Carpentry</span>
         </Link>
         <nav className="desktop-nav-links" aria-label="Primary">
-          <Link href="/projects">Portfolio</Link>
+          <Link href="/projects">Our Work</Link>
           <Link href="/services">Services</Link>
           <a href="#process">Process</a>
           <a href="#testimonials">Testimonials</a>

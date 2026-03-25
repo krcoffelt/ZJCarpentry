@@ -469,6 +469,10 @@ h4 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
   align-items: start;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(12, 14, 14, 0.52), rgba(18, 20, 20, 0.2));
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: calc(var(--radius-md) + 0.1rem);
 }
 
 .service-card,
@@ -563,10 +567,20 @@ h4 {
 
 .portfolio-grid .project-card {
   grid-template-columns: 1fr;
+  border: 1px solid rgba(250, 204, 21, 0.14);
+  background: linear-gradient(180deg, rgba(36, 39, 39, 0.98), rgba(22, 24, 24, 1));
+  box-shadow:
+    0 24px 42px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .portfolio-grid .project-image {
   min-height: 320px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.portfolio-grid .project-body {
+  background: linear-gradient(180deg, rgba(31, 34, 35, 0.96), rgba(21, 23, 23, 1));
 }
 
 .portfolio-grid .project-card-featured {
@@ -1562,22 +1576,26 @@ h4 {
 }
 
 .desktop-hero-media,
-.desktop-hero-media img {
+.desktop-hero-media img,
+.desktop-hero-media video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
 
-.desktop-hero-media img {
+.desktop-hero-media img,
+.desktop-hero-media video {
   object-fit: cover;
-  filter: brightness(0.4);
+  filter: brightness(0.58);
 }
 
 .desktop-hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.46) 0%, rgba(0, 0, 0, 0.24) 55%, rgba(0, 0, 0, 0.3) 100%),
+    rgba(0, 0, 0, 0.12);
 }
 
 .desktop-hero-content {

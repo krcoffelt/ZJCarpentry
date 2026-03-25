@@ -23,7 +23,7 @@ export function SiteFooter() {
         <div>
           <h4>Company</h4>
           <div className="desktop-footer-links">
-            <Link href="/projects">Portfolio</Link>
+            <Link href="/projects">Our Work</Link>
             <Link href="/about">Our Story</Link>
             <Link href="/contact">Contact</Link>
           </div>
@@ -33,7 +33,6 @@ export function SiteFooter() {
           <div className="desktop-footer-contact">
             <p>Kansas City Metro Area</p>
             <p>{company.phone}</p>
-            <p>{company.email}</p>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const serviceCards = [
     body: "Deck construction and rebuilds designed for durability, clean installation, and long-term outdoor use.",
     cta: "Learn More",
     href: "/services/deck-building",
-    image: photoLibrary.deckStairs,
+    image: photoLibrary.deck,
     alt: "Custom deck",
   },
   {
@@ -61,10 +61,16 @@ export default function HomePage() {
     <div className="desktop-page">
       <section className="desktop-hero">
         <div className="desktop-hero-media">
-          <img
-            alt="Front porch railing project"
-            src={photoLibrary.hero}
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={photoLibrary.hero}
+            preload="metadata"
+          >
+            <source src="/videos/ZJCarpentry_SlowMo.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="desktop-hero-overlay" />
         <div className="desktop-shell desktop-hero-content">
@@ -137,8 +143,8 @@ export default function HomePage() {
 
             <article className="desktop-wide-image-card">
               <img
-                alt="Built-in basement cabinetry"
-                src={photoLibrary.carpentry}
+                alt="Poolside pergola project"
+                src={photoLibrary.pergola}
               />
               <div className="desktop-wide-image-overlay" />
               <div className="desktop-wide-image-title">Recent Project Work</div>
@@ -202,8 +208,8 @@ export default function HomePage() {
         <div className="desktop-shell">
           <div className="desktop-cta-card">
             <img
-              alt="Custom deck stairs and railing"
-              src={photoLibrary.deckStairs}
+              alt="Deck stairs and railing project"
+              src={photoLibrary.deckSteps}
             />
             <div className="desktop-cta-overlay" />
             <div className="desktop-cta-content">

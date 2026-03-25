@@ -73,9 +73,14 @@ export const trustSignals = [
 ];
 
 export const photoLibrary = {
-  hero: "/photos/front-porch-railing.png",
-  deck: "/photos/deck-overview.png",
-  deckStairs: "/photos/deck-stairs-build.png",
+  hero: "/photos/cedar-deck-platform.jpg",
+  deck: "/photos/stained-deck-overview.jpg",
+  deckDetail: "/photos/stained-deck-detail.jpg",
+  deckStairs: "/photos/black-rail-deck-stairs.jpg",
+  deckSteps: "/photos/stained-deck-steps.jpg",
+  deckAngle: "/photos/deck-stairs-angle.jpg",
+  frontEntryRailing: "/photos/front-entry-railing.jpg",
+  pergola: "/photos/poolside-pergola.jpg",
   flooring: "/photos/herringbone-flooring.png",
   remodel: "/photos/basement-remodel-room.png",
   carpentry: "/photos/basement-wet-bar-cabinetry.png",
@@ -122,7 +127,12 @@ export const services: ServicePage[] = [
         answer: "Yes. Composite and pressure-treated options can both be quoted based on budget, maintenance goals, and the look you want.",
       },
     ],
-    relatedProjects: ["shawnee-backyard-deck", "leawood-composite-deck"],
+    relatedProjects: [
+      "shawnee-backyard-deck",
+      "leawood-composite-deck",
+      "overland-park-cedar-deck",
+      "olathe-stair-railing-upgrade",
+    ],
     servedAreas: ["kansas-city", "overland-park", "leawood", "olathe", "lees-summit"],
     imageUrl: photoLibrary.deck,
   },
@@ -224,7 +234,7 @@ export const projects: Project[] = [
     completionWindow: "Spring project",
     featured: true,
     imageLabel: "Deck rebuild",
-    imageUrl: photoLibrary.deckStairs,
+    imageUrl: photoLibrary.deck,
   },
   {
     slug: "leawood-composite-deck",
@@ -239,7 +249,52 @@ export const projects: Project[] = [
     completionWindow: "Summer project",
     featured: true,
     imageLabel: "Front porch rebuild",
-    imageUrl: photoLibrary.hero,
+    imageUrl: photoLibrary.frontEntryRailing,
+  },
+  {
+    slug: "overland-park-cedar-deck",
+    title: "Cedar Deck Refresh",
+    location: "Overland Park, KS",
+    serviceCategory: "Deck Building",
+    summary:
+      "Built out a cedar deck surface with updated rails and a cleaner finished layout for everyday backyard use.",
+    scope: ["Deck resurfacing", "Railing install", "Stain-ready finish"],
+    testimonial:
+      "The new deck looks clean, the rail lines are sharp, and the whole space feels much more finished than before.",
+    completionWindow: "Recent project",
+    featured: false,
+    imageLabel: "Cedar deck",
+    imageUrl: photoLibrary.deckDetail,
+  },
+  {
+    slug: "olathe-stair-railing-upgrade",
+    title: "Deck Stair And Railing Upgrade",
+    location: "Olathe, KS",
+    serviceCategory: "Deck Building",
+    summary:
+      "Updated deck access with new stairs, rails, and a more polished connection from the house to the yard.",
+    scope: ["Stair rebuild", "Metal balusters", "Deck transition work"],
+    testimonial:
+      "The stairs feel solid, the rail layout looks better, and the finished build cleaned up the whole back entry.",
+    completionWindow: "Recent project",
+    featured: false,
+    imageLabel: "Deck stairs",
+    imageUrl: photoLibrary.deckAngle,
+  },
+  {
+    slug: "lees-summit-poolside-pergola",
+    title: "Poolside Pergola Install",
+    location: "Lee's Summit, MO",
+    serviceCategory: "Deck Building",
+    summary:
+      "Installed a modern outdoor shade structure that made the patio and pool area more usable for entertaining.",
+    scope: ["Pergola install", "Outdoor structure layout", "Patio integration"],
+    testimonial:
+      "The finished structure changed the whole backyard and gave us a much more functional outdoor space.",
+    completionWindow: "Recent project",
+    featured: false,
+    imageLabel: "Outdoor pergola",
+    imageUrl: photoLibrary.pergola,
   },
   {
     slug: "kansas-city-basement-finish",
