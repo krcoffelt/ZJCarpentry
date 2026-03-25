@@ -3,11 +3,12 @@ import type { Project } from "@/lib/site-data";
 
 type ProjectCardProps = {
   project: Project;
+  featured?: boolean;
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, featured = false }: ProjectCardProps) {
   return (
-    <article className="project-card">
+    <article className={`project-card${featured ? " project-card-featured" : ""}`}>
       <div className="project-image">
         <img alt={project.title} src={project.imageUrl} />
         <span>{project.imageLabel}</span>

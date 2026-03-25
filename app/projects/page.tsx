@@ -19,14 +19,9 @@ export default function ProjectsPage() {
         </div>
         <p>Examples of the kinds of projects homeowners ask about most.</p>
       </div>
-      <div className="shell project-grid">
-        {projects.slice(0, 3).map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </div>
-      <div className="shell service-grid" style={{ marginTop: "1.5rem" }}>
-        {projects.slice(3).map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+      <div className="shell portfolio-grid">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.slug} project={project} featured={index === 0} />
         ))}
       </div>
     </section>
