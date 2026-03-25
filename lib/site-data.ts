@@ -13,6 +13,12 @@ export type QuoteRequest = {
   submittedAt: string;
 };
 
+export type MediaAsset = {
+  src: string;
+  width: number;
+  height: number;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -24,7 +30,7 @@ export type Project = {
   completionWindow: string;
   featured: boolean;
   imageLabel: string;
-  imageUrl: string;
+  image: MediaAsset;
 };
 
 export type ServicePage = {
@@ -38,7 +44,7 @@ export type ServicePage = {
   faqItems: { question: string; answer: string }[];
   relatedProjects: string[];
   servedAreas: string[];
-  imageUrl: string;
+  image: MediaAsset;
 };
 
 export type ServiceArea = {
@@ -73,20 +79,18 @@ export const trustSignals = [
 ];
 
 export const photoLibrary = {
-  hero: "/photos/cedar-deck-platform.jpg",
-  deck: "/photos/stained-deck-overview.jpg",
-  deckDetail: "/photos/stained-deck-detail.jpg",
-  deckStairs: "/photos/black-rail-deck-stairs.jpg",
-  deckSteps: "/photos/stained-deck-steps.jpg",
-  deckAngle: "/photos/deck-stairs-angle.jpg",
-  frontEntryRailing: "/photos/front-entry-railing.jpg",
-  pergola: "/photos/poolside-pergola.jpg",
-  flooring: "/photos/herringbone-flooring.png",
-  remodel: "/photos/basement-remodel-room.png",
-  carpentry: "/photos/basement-wet-bar-cabinetry.png",
-  storageBuild: "/photos/outdoor-storage-build.png",
-  storageDoors: "/photos/outdoor-storage-doors.png",
-  fence: "/photos/cedar-fence-line.png",
+  hero: { src: "/photos-opt/cedar-deck-platform.jpg", width: 1600, height: 1200 },
+  deck: { src: "/photos-opt/stained-deck-overview.jpg", width: 1200, height: 1600 },
+  deckDetail: { src: "/photos-opt/stained-deck-detail.jpg", width: 1600, height: 1200 },
+  deckStairs: { src: "/photos-opt/black-rail-deck-stairs.jpg", width: 1200, height: 1600 },
+  deckSteps: { src: "/photos-opt/stained-deck-steps.jpg", width: 1200, height: 1600 },
+  deckAngle: { src: "/photos-opt/deck-stairs-angle.jpg", width: 1200, height: 1600 },
+  frontEntryRailing: { src: "/photos-opt/front-entry-railing.jpg", width: 1200, height: 1600 },
+  pergola: { src: "/photos-opt/poolside-pergola.jpg", width: 1200, height: 1600 },
+  flooring: { src: "/photos-opt/herringbone-flooring.jpg", width: 1344, height: 1600 },
+  remodel: { src: "/photos-opt/basement-remodel-room.jpg", width: 1600, height: 1293 },
+  carpentry: { src: "/photos-opt/basement-wet-bar-cabinetry.jpg", width: 1600, height: 1212 },
+  storageDoors: { src: "/photos-opt/outdoor-storage-doors.jpg", width: 1265, height: 1600 },
 } as const;
 
 export const services: ServicePage[] = [
@@ -134,7 +138,7 @@ export const services: ServicePage[] = [
       "olathe-stair-railing-upgrade",
     ],
     servedAreas: ["kansas-city", "overland-park", "leawood", "olathe", "lees-summit"],
-    imageUrl: photoLibrary.deck,
+    image: photoLibrary.deck,
   },
   {
     slug: "remodeling",
@@ -175,7 +179,7 @@ export const services: ServicePage[] = [
     ],
     relatedProjects: ["kansas-city-basement-finish", "brookside-interior-remodel"],
     servedAreas: ["kansas-city", "overland-park", "olathe", "lees-summit"],
-    imageUrl: photoLibrary.remodel,
+    image: photoLibrary.remodel,
   },
   {
     slug: "interior-carpentry",
@@ -216,7 +220,7 @@ export const services: ServicePage[] = [
     ],
     relatedProjects: ["prairie-village-trim-upgrade", "brookside-interior-remodel"],
     servedAreas: ["kansas-city", "leawood", "overland-park", "lees-summit"],
-    imageUrl: photoLibrary.carpentry,
+    image: photoLibrary.carpentry,
   },
 ];
 
@@ -234,7 +238,7 @@ export const projects: Project[] = [
     completionWindow: "Spring project",
     featured: true,
     imageLabel: "Deck rebuild",
-    imageUrl: photoLibrary.deck,
+    image: photoLibrary.deck,
   },
   {
     slug: "leawood-composite-deck",
@@ -249,7 +253,7 @@ export const projects: Project[] = [
     completionWindow: "Summer project",
     featured: true,
     imageLabel: "Front porch rebuild",
-    imageUrl: photoLibrary.frontEntryRailing,
+    image: photoLibrary.frontEntryRailing,
   },
   {
     slug: "overland-park-cedar-deck",
@@ -264,7 +268,7 @@ export const projects: Project[] = [
     completionWindow: "Recent project",
     featured: false,
     imageLabel: "Cedar deck",
-    imageUrl: photoLibrary.deckDetail,
+    image: photoLibrary.deckDetail,
   },
   {
     slug: "olathe-stair-railing-upgrade",
@@ -279,7 +283,7 @@ export const projects: Project[] = [
     completionWindow: "Recent project",
     featured: false,
     imageLabel: "Deck stairs",
-    imageUrl: photoLibrary.deckAngle,
+    image: photoLibrary.deckAngle,
   },
   {
     slug: "lees-summit-poolside-pergola",
@@ -294,7 +298,7 @@ export const projects: Project[] = [
     completionWindow: "Recent project",
     featured: false,
     imageLabel: "Outdoor pergola",
-    imageUrl: photoLibrary.pergola,
+    image: photoLibrary.pergola,
   },
   {
     slug: "kansas-city-basement-finish",
@@ -309,7 +313,7 @@ export const projects: Project[] = [
     completionWindow: "Winter project",
     featured: true,
     imageLabel: "Basement remodel",
-    imageUrl: photoLibrary.remodel,
+    image: photoLibrary.remodel,
   },
   {
     slug: "brookside-interior-remodel",
@@ -324,7 +328,7 @@ export const projects: Project[] = [
     completionWindow: "Recent project",
     featured: false,
     imageLabel: "Built-in cabinetry",
-    imageUrl: photoLibrary.carpentry,
+    image: photoLibrary.carpentry,
   },
   {
     slug: "prairie-village-trim-upgrade",
@@ -339,7 +343,7 @@ export const projects: Project[] = [
     completionWindow: "Recent project",
     featured: false,
     imageLabel: "Storage enclosure",
-    imageUrl: photoLibrary.storageDoors,
+    image: photoLibrary.storageDoors,
   },
 ];
 

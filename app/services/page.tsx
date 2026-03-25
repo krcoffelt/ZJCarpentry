@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { services } from "@/lib/site-data";
@@ -23,7 +24,13 @@ export default function ServicesPage() {
         {services.map((service) => (
           <article key={service.slug} className="service-card">
             <div className="service-photo">
-              <img alt={service.serviceName} src={service.imageUrl} />
+              <Image
+                alt={service.serviceName}
+                src={service.image.src}
+                fill
+                sizes="(max-width: 1100px) 100vw, 33vw"
+                quality={74}
+              />
             </div>
             <p className="eyebrow">{service.targetKeywords[0]}</p>
             <h2>{service.serviceName}</h2>

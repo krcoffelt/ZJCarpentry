@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ProjectCard } from "@/components/project-card";
 import { QuoteForm } from "@/components/quote-form";
@@ -71,7 +72,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </ul>
           </div>
           <div className="page-visual">
-            <img alt={service.serviceName} src={service.imageUrl} />
+            <Image
+              alt={service.serviceName}
+              src={service.image.src}
+              fill
+              sizes="(max-width: 1100px) 100vw, 42vw"
+              quality={76}
+            />
             <span>{service.serviceName}</span>
           </div>
         </div>
@@ -99,7 +106,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
         <div className="shell project-grid">
           {relatedProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              imageSizes="(max-width: 1100px) 100vw, 48vw"
+            />
           ))}
         </div>
       </section>

@@ -21,7 +21,12 @@ export default function ProjectsPage() {
       </div>
       <div className="shell portfolio-grid">
         {projects.map((project, index) => (
-          <ProjectCard key={project.slug} project={project} featured={index === 0} />
+          <ProjectCard
+            key={project.slug}
+            project={project}
+            featured={index === 0}
+            imageSizes="(max-width: 1100px) 100vw, 50vw"
+          />
         ))}
       </div>
     </section>

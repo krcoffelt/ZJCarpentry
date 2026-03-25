@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { HeroMedia } from "@/components/hero-media";
 import { buildMetadata } from "@/lib/seo";
 import { company, photoLibrary, reviews } from "@/lib/site-data";
 
@@ -60,18 +62,11 @@ export default function HomePage() {
   return (
     <div className="desktop-page">
       <section className="desktop-hero">
-        <div className="desktop-hero-media">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            aria-hidden="true"
-          >
-            <source src="/videos/ZJCarpentry_SlowMo.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <HeroMedia
+          image={photoLibrary.hero}
+          videoSrc="/videos/ZJCarpentry_SlowMo.mp4"
+          alt="Finished cedar deck project"
+        />
         <div className="desktop-hero-overlay" />
         <div className="desktop-shell desktop-hero-content">
           <div className="desktop-hero-copy">
@@ -106,7 +101,13 @@ export default function HomePage() {
 
           <div className="desktop-bento-grid">
             <article className="desktop-feature-card">
-              <img alt={serviceCards[0].alt} src={serviceCards[0].image} />
+              <Image
+                alt={serviceCards[0].alt}
+                src={serviceCards[0].image.src}
+                fill
+                sizes="(max-width: 900px) 100vw, 66vw"
+                quality={78}
+              />
               <div className="desktop-feature-overlay" />
               <div className="desktop-feature-copy">
                 <h3>{serviceCards[0].title}</h3>
@@ -142,9 +143,12 @@ export default function HomePage() {
             </article>
 
             <article className="desktop-wide-image-card">
-              <img
+              <Image
                 alt="Poolside pergola project"
-                src={photoLibrary.pergola}
+                src={photoLibrary.pergola.src}
+                fill
+                sizes="(max-width: 900px) 100vw, 66vw"
+                quality={74}
               />
               <div className="desktop-wide-image-overlay" />
               <div className="desktop-wide-image-title">Recent Project Work</div>
@@ -181,6 +185,7 @@ export default function HomePage() {
       <section className="desktop-section" id="testimonials">
         <div className="desktop-shell desktop-testimonial-grid">
           <div className="desktop-testimonial-intro">
+            <p className="desktop-testimonial-kicker">Client Reviews</p>
             <h2 className="two-line-lock">
               <span>What Homeowners Say</span>
               <span>In Kansas City</span>
@@ -189,10 +194,23 @@ export default function HomePage() {
               Homeowners remember clear communication, professional work, and a
               finished result that looks right.
             </p>
+            <div className="desktop-testimonial-meta">
+              <div>
+                <strong>6 Recent Reviews</strong>
+                <span>Decks, remodels, and interior work</span>
+              </div>
+              <div>
+                <strong>Professional Communication</strong>
+                <span>Quoted clearly and followed through</span>
+              </div>
+            </div>
           </div>
           <div className="desktop-testimonial-list">
-            {featuredReviews.map((review) => (
-              <article key={review.name} className="desktop-testimonial-card">
+            {featuredReviews.map((review, index) => (
+              <article
+                key={review.name}
+                className={`desktop-testimonial-card${index === 0 ? " desktop-testimonial-card-featured" : ""}`}
+              >
                 <div className="desktop-stars">★★★★★</div>
                 <p className="desktop-testimonial-quote">"{review.quote}"</p>
                 <div className="desktop-testimonial-person">
@@ -207,9 +225,12 @@ export default function HomePage() {
       <section className="desktop-cta-banner">
         <div className="desktop-shell">
           <div className="desktop-cta-card">
-            <img
+            <Image
               alt="Deck stairs and railing project"
-              src={photoLibrary.deckSteps}
+              src={photoLibrary.deckSteps.src}
+              fill
+              sizes="(max-width: 900px) 100vw, 66vw"
+              quality={76}
             />
             <div className="desktop-cta-overlay" />
             <div className="desktop-cta-content">
