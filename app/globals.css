@@ -2268,9 +2268,29 @@ h4 {
     max-width: none;
   }
 
+  .desktop-hero-line,
+  .desktop-cta-line,
+  .two-line-lock span {
+    white-space: normal;
+  }
+
   .desktop-hero-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .desktop-feature-card {
+    aspect-ratio: auto;
+    min-height: 32rem;
+  }
+
+  .desktop-wide-image-card {
+    aspect-ratio: auto;
+    min-height: 14rem;
+  }
+
+  .desktop-testimonial-grid {
+    gap: 2rem;
   }
 
   .desktop-feature-copy,
@@ -2296,5 +2316,9 @@ h4 {
   .desktop-section,
   .desktop-process-section {
     padding: 5rem 0;
+  }
+
+  .desktop-cta-banner {
+    padding-bottom: 7rem;
   }
 }
