@@ -38,6 +38,12 @@ export function SiteFooter() {
       </div>
       <div className="desktop-shell desktop-footer-bottom">
         <p>© 2024 Z &amp; J Carpentry.</p>
+        <p>
+          Website by{" "}
+          <a href="https://hometownkc.agency" target="_blank" rel="noreferrer">
+            Hometown Marketing Agency
+          </a>
+        </p>
       </div>
     </footer>
   );
