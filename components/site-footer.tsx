@@ -15,9 +15,9 @@ export function SiteFooter() {
         <div>
           <h4>Services</h4>
           <div className="desktop-footer-links">
-            <Link href="/services/deck-building">Decks</Link>
-            <Link href="/services/remodeling">Flooring</Link>
-            <Link href="/services/interior-carpentry">Custom Build</Link>
+            <Link href="/services/deck-building">Deck Building</Link>
+            <Link href="/services/remodeling">Remodeling</Link>
+            <Link href="/services/interior-carpentry">Interior Carpentry</Link>
           </div>
         </div>
         <div>

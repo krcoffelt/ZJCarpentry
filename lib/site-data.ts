@@ -63,7 +63,7 @@ export const company = {
   phoneHref: "tel:+19133141113",
   email: "quotes@zjcarpentry.com",
   serviceRegion: "Kansas City, MO and nearby suburbs",
-  siteUrl: "https://www.zjcarpentry.com",
+  siteUrl: "https://zjcarpentry.com",
   addressLocality: "Kansas City",
   addressRegion: "MO",
   sameAs: [
