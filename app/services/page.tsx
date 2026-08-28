@@ -4,9 +4,9 @@ import { buildMetadata } from "@/lib/seo";
 import { services } from "@/lib/site-data";
 
 export const metadata = buildMetadata({
-  title: "Services",
+  title: "Carpentry and Remodeling Services in Kansas City",
   description:
-    "Deck building, remodeling, and interior carpentry services for Kansas City and nearby suburbs.",
+    "Deck building, basement finishing, remodeling, flooring, and interior carpentry services for Kansas City and nearby suburbs.",
   path: "/services",
 });
 
@@ -16,7 +16,9 @@ export default function ServicesPage() {
       <div className="shell lead-grid">
         <div>
           <p className="eyebrow">Services</p>
-          <h1 className="services-page-title">Decks, remodels, and interior carpentry.</h1>
+          <h1 className="services-page-title">
+            Decks, basement finishing, remodeling, flooring, and carpentry.
+          </h1>
         </div>
         <p>Choose the type of work you need and start with the right service.</p>
       </div>

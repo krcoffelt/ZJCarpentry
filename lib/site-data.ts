@@ -36,6 +36,8 @@ export type Project = {
 export type ServicePage = {
   slug: string;
   serviceName: string;
+  seoTitle: string;
+  heading: string;
   heroCopy: string;
   targetKeywords: string[];
   proofPoints: string[];
@@ -50,24 +52,27 @@ export type ServicePage = {
 export type ServiceArea = {
   slug: string;
   name: string;
+  heading: string;
   intro: string;
   highlights: string[];
   neighborhoods: string[];
   relatedServices: string[];
+  projectSlugs: string[];
 };
 
 export const company = {
   name: "ZJ Carpentry",
-  legalName: "ZJ Carpentry",
+  legalName: "Z&J Carpentry & More, LLC",
+  alternateName: "Z & J Carpentry",
   phone: "(913) 314-1113",
   phoneHref: "tel:+19133141113",
   email: "quotes@zjcarpentry.com",
   serviceRegion: "Kansas City, MO and nearby suburbs",
   siteUrl: "https://zjcarpentry.com",
-  addressLocality: "Kansas City",
+  addressLocality: "Raytown",
   addressRegion: "MO",
   sameAs: [
-    "https://www.google.com/search?q=ZJ+Carpentry+Kansas+City",
+    "https://www.bbb.org/us/mo/raytown/profile/carpenter/zj-carpentry-more-llc-0714-1000058325",
   ],
 };
 
@@ -97,8 +102,10 @@ export const services: ServicePage[] = [
   {
     slug: "deck-building",
     serviceName: "Deck Building",
+    seoTitle: "Kansas City Deck Builder",
+    heading: "Kansas City Deck Builder for New Builds and Rebuilds",
     heroCopy:
-      "Deck builds, rebuilds, stairs, and rails for Kansas City homeowners who want a clean quote and visible recent work.",
+      "ZJ Carpentry builds and rebuilds decks, stairs, and railings across Kansas City in composite or pressure-treated lumber.",
     targetKeywords: [
       "Kansas City deck builder",
       "custom deck builder",
@@ -143,8 +150,10 @@ export const services: ServicePage[] = [
   {
     slug: "remodeling",
     serviceName: "Remodeling",
+    seoTitle: "Kansas City Remodeling Contractor",
+    heading: "Kansas City Remodeling Contractor for Interior Updates",
     heroCopy:
-      "Remodel work for Kansas City homeowners who want clear scope, clean communication, and a straightforward next step.",
+      "ZJ Carpentry handles practical interior remodels and room updates for Kansas City homeowners, with a clear scope, estimate conversation, and next step.",
     targetKeywords: [
       "Kansas City remodeling contractor",
       "home remodel Kansas City",
@@ -184,8 +193,10 @@ export const services: ServicePage[] = [
   {
     slug: "interior-carpentry",
     serviceName: "Interior Carpentry",
+    seoTitle: "Interior and Finish Carpenter in Kansas City",
+    heading: "Interior and Finish Carpenter in Kansas City",
     heroCopy:
-      "Trim, built-ins, accent walls, and finish carpentry for homeowners who want cleaner interiors and a polished result.",
+      "ZJ Carpentry installs trim, built-ins, accent walls, and finish carpentry for Kansas City homeowners as focused projects or as part of a larger remodel.",
     targetKeywords: [
       "trim carpenter Kansas City",
       "interior carpentry Kansas City",
@@ -221,6 +232,91 @@ export const services: ServicePage[] = [
     relatedProjects: ["prairie-village-trim-upgrade", "brookside-interior-remodel"],
     servedAreas: ["kansas-city", "leawood", "overland-park", "lees-summit"],
     image: photoLibrary.carpentry,
+  },
+  {
+    slug: "flooring",
+    serviceName: "Flooring",
+    seoTitle: "Flooring Installation in Kansas City",
+    heading: "Flooring Installation and Replacement in Kansas City",
+    heroCopy:
+      "ZJ Carpentry installs and replaces hardwood and resilient flooring for Kansas City homeowners who want a clean transition, precise layout, and finished result.",
+    targetKeywords: [
+      "flooring installation Kansas City",
+      "hardwood flooring installation Kansas City",
+      "floor replacement Kansas City",
+      "LVP flooring installation Kansas City",
+    ],
+    proofPoints: [
+      "New flooring and replacement",
+      "Hardwood and resilient flooring",
+    ],
+    intro:
+      "Floor installation and replacement with careful layout and finish details.",
+    detailSections: [
+      {
+        title: "What the flooring service covers",
+        body: "Projects can include removing or replacing an existing floor, laying out the new surface, and completing the visible transition and trim details tied to the installation.",
+      },
+      {
+        title: "What helps the estimate",
+        body: "Share the room size, current flooring, preferred material, and photos of doorways or transitions so the first estimate conversation starts with the right scope.",
+      },
+    ],
+    faqItems: [
+      {
+        question: "Do you install both hardwood and LVP flooring?",
+        answer: "Yes. Hardwood and resilient flooring such as LVP can be quoted based on the room, subfloor conditions, transitions, and selected material.",
+      },
+      {
+        question: "Can flooring be included in a larger remodel?",
+        answer: "Yes. Flooring can be quoted as a focused installation or coordinated with a broader interior remodeling scope.",
+      },
+    ],
+    relatedProjects: ["brookside-interior-remodel", "prairie-village-trim-upgrade"],
+    servedAreas: ["kansas-city", "overland-park", "leawood", "olathe", "lees-summit"],
+    image: photoLibrary.flooring,
+  },
+  {
+    slug: "basement-finishing",
+    serviceName: "Basement Finishing",
+    seoTitle: "Basement Finishing in Kansas City",
+    heading: "Basement Finishing in Kansas City",
+    heroCopy:
+      "ZJ Carpentry finishes Kansas City basements with practical framing, trim, built-ins, and flooring planned around how the room will be used.",
+    targetKeywords: [
+      "basement finishing Kansas City",
+      "basement remodeling Kansas City",
+      "finished basement contractor Kansas City",
+    ],
+    proofPoints: [
+      "Framing and finish carpentry",
+      "Trim, built-ins, and flooring coordination",
+    ],
+    intro:
+      "Basement finishing that turns an underused room into a practical living space.",
+    detailSections: [
+      {
+        title: "What basement finishing can include",
+        body: "A basement scope can include framing and room layout changes, interior trim, built-in storage or cabinetry, flooring, and the finish details that make the space feel complete.",
+      },
+      {
+        title: "How to start the quote",
+        body: "Send photos of the current basement and describe the rooms or functions you want. That is enough to begin a conversation about scope, materials, and sequencing.",
+      },
+    ],
+    faqItems: [
+      {
+        question: "Do you finish unfinished basements and update existing finished basements?",
+        answer: "Yes. Both unfinished spaces and existing basements that need a practical layout or finish update can be reviewed for a quote.",
+      },
+      {
+        question: "Can built-ins or a wet-bar area be part of the basement project?",
+        answer: "Yes. Built-in storage, cabinetry, trim, and finish carpentry can be included when they fit the overall basement scope.",
+      },
+    ],
+    relatedProjects: ["kansas-city-basement-finish", "brookside-interior-remodel"],
+    servedAreas: ["kansas-city", "overland-park", "olathe", "lees-summit"],
+    image: photoLibrary.remodel,
   },
 ];
 
@@ -351,67 +447,77 @@ export const areas: ServiceArea[] = [
   {
     slug: "kansas-city",
     name: "Kansas City",
+    heading: "Deck Building, Remodeling, and Carpentry in Kansas City",
     intro:
-      "Primary local service area for deck building, remodeling, and interior carpentry with an emphasis on fast response and practical project planning.",
+      "ZJ Carpentry serves Kansas City homeowners with deck building and rebuilds, basement finishing, flooring, remodeling, and interior finish carpentry.",
     highlights: [
-      "Strong fit for homeowners comparing local deck builders and remodelers",
-      "Flexible support for interior upgrades and punch-list style carpentry work",
-      "Pages written to support city-level SEO and conversion intent",
+      "New decks, rebuilds, stairs, and railings",
+      "Basement finishing and practical interior remodels",
+      "Trim, built-ins, accent walls, and flooring",
     ],
     neighborhoods: ["Brookside", "Waldo", "Northland", "South Kansas City"],
-    relatedServices: ["deck-building", "remodeling", "interior-carpentry"],
+    relatedServices: ["deck-building", "basement-finishing", "remodeling", "interior-carpentry", "flooring"],
+    projectSlugs: ["kansas-city-basement-finish", "brookside-interior-remodel"],
   },
   {
     slug: "overland-park",
     name: "Overland Park",
+    heading: "Deck Builder and Remodeling Contractor in Overland Park",
     intro:
-      "Service area page for homeowners looking for a dependable contractor for deck builds, remodel projects, and finish carpentry upgrades.",
+      "ZJ Carpentry builds and rebuilds decks and handles remodeling, basement, flooring, and finish-carpentry projects for Overland Park homeowners.",
     highlights: [
-      "Deck and backyard improvement demand",
-      "Strong remodel and finish-carpentry homeowner search intent",
-      "Clear CTA path for calls and quote requests",
+      "Deck builds, rebuilds, stairs, and railings",
+      "Interior remodel and basement updates",
+      "Finish carpentry and flooring installation",
     ],
     neighborhoods: ["Downtown Overland Park", "Blue Valley", "Nottingham"],
-    relatedServices: ["deck-building", "remodeling", "interior-carpentry"],
+    relatedServices: ["deck-building", "basement-finishing", "remodeling", "interior-carpentry", "flooring"],
+    projectSlugs: ["overland-park-cedar-deck"],
   },
   {
     slug: "leawood",
     name: "Leawood",
+    heading: "Deck Building and Finish Carpentry in Leawood",
     intro:
-      "Leawood homeowners often want polished project execution, recent work examples, and a clean estimate process before committing.",
+      "ZJ Carpentry serves Leawood homeowners with deck building, porch and railing work, flooring, built-ins, trim, and other finish-carpentry projects.",
     highlights: [
-      "Strong fit for composite decks and finish-focused upgrades",
-      "Useful page for intent around trust and professionalism",
-      "Supports local service relevance without thin doorway content",
+      "Composite and pressure-treated deck options",
+      "Porch rails, stairs, and outdoor finish work",
+      "Built-ins, trim, accent walls, and flooring",
     ],
     neighborhoods: ["Old Leawood", "Mission Farms", "Hallbrook"],
-    relatedServices: ["deck-building", "interior-carpentry"],
+    relatedServices: ["deck-building", "interior-carpentry", "flooring"],
+    projectSlugs: ["leawood-composite-deck"],
   },
   {
     slug: "olathe",
     name: "Olathe",
+    heading: "Deck Building and Remodeling in Olathe",
     intro:
-      "Olathe service area page focused on practical carpentry, remodel planning, and outdoor living projects with straightforward communication.",
+      "ZJ Carpentry serves Olathe homeowners with deck building and rebuilds, basement finishing, remodeling, and flooring projects.",
     highlights: [
-      "Deck demand supported by suburban backyard project intent",
-      "Remodel messaging tied to reliability and process",
-      "Useful expansion page in the KC suburban cluster",
+      "Deck stairs, rails, rebuilds, and new construction",
+      "Basement finishing and interior remodeling",
+      "Flooring installation and finish details",
     ],
     neighborhoods: ["Forest View", "Cedar Creek", "Downtown Olathe"],
-    relatedServices: ["deck-building", "remodeling"],
+    relatedServices: ["deck-building", "basement-finishing", "remodeling", "flooring"],
+    projectSlugs: ["olathe-stair-railing-upgrade"],
   },
   {
     slug: "lees-summit",
     name: "Lee's Summit",
+    heading: "Deck Builder and Remodeling Contractor in Lee's Summit",
     intro:
-      "Lee's Summit homeowners looking for decks, remodels, or interior upgrades can use this page to find the right service fast.",
+      "ZJ Carpentry serves Lee's Summit homeowners with decks, pergolas, basement finishing, remodeling, flooring, and interior finish carpentry.",
     highlights: [
-      "Good fit for deck, basement, and trim-intent pages",
-      "Local page supports conversion from suburb-specific searches",
-      "Built to expand with project examples over time",
+      "Decks, pergolas, stairs, and railing projects",
+      "Basement finishing and interior remodels",
+      "Trim, built-ins, and flooring installation",
     ],
     neighborhoods: ["Raintree Lake", "Downtown Lee's Summit", "Lakewood"],
-    relatedServices: ["deck-building", "remodeling", "interior-carpentry"],
+    relatedServices: ["deck-building", "basement-finishing", "remodeling", "interior-carpentry", "flooring"],
+    projectSlugs: ["lees-summit-poolside-pergola"],
   },
 ];
 

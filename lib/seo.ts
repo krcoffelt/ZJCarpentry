@@ -44,7 +44,11 @@ export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": `${company.siteUrl}/#business`,
     name: company.legalName,
+    alternateName: [company.name, company.alternateName],
+    description:
+      "Deck building, remodeling, basement finishing, flooring, and interior carpentry in the Kansas City metro.",
     telephone: company.phone,
     email: company.email,
     areaServed: "Kansas City metropolitan area",
@@ -88,16 +92,27 @@ export function breadcrumbSchema(items: { name: string; item: string }[]) {
   };
 }
 
-export function serviceSchema(name: string, description: string, areaServed: string[]) {
+export function serviceSchema(
+  name: string,
+  description: string,
+  areaServed: string[],
+  path: string,
+) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
     serviceType: name,
+    name,
+    url: new URL(path, company.siteUrl).toString(),
     provider: {
       "@type": "LocalBusiness",
+      "@id": `${company.siteUrl}/#business`,
       name: company.name,
     },
     description,
-    areaServed,
+    areaServed: areaServed.map((name) => ({
+      "@type": "City",
+      name,
+    })),
   };
 }

@@ -1,116 +1,111 @@
 # SEO/GEO Visibility Loop
 
-## Benchmark State
+## Audit scope
 
-- Date of benchmark: 2026-06-22
-- Site URL: https://zjcarpentry.com
-- Locale/location: Kansas City metro, MO/KS, United States
-- Search engines checked: Google-style web search via available web search; live URL checks with `curl`
-- AI answer engines checked: Not directly accessible from this environment
-- Target audience: Kansas City area homeowners looking for deck building, remodeling, flooring, and interior carpentry
-- SEO type: Local SEO and service-area SEO
-- Target services/products/topics: deck building, deck rebuilds, remodeling, basement finishing, flooring, interior carpentry, trim, built-ins, accent walls
-- Priority pages: `/`, `/services/deck-building`, `/services/remodeling`, `/services/interior-carpentry`, `/service-areas/kansas-city`, `/service-areas/overland-park`, `/contact`
-- Build/lint/test commands found: `npm run build`, `npm run lint`, `npm run typecheck`
+- Audit date: 2026-08-28
+- Site: https://zjcarpentry.com
+- Market: Kansas City metro, Missouri and Kansas
+- Checks: crawlability, indexation, page intent, titles and descriptions, internal links, structured data, source attribution, answer-first content, traditional search, and AI answer results
+- Repeatable tools: `scripts/seo-audit.mjs` and `scripts/seo-query-benchmark.mjs`
 
-## Repo Inspection
+## Baseline
 
-- Framework/CMS/static setup: Next.js App Router site using TypeScript and file-based routes.
-- Routing structure: static pages in `app/*/page.tsx`, dynamic service pages in `app/services/[slug]/page.tsx`, dynamic service-area pages in `app/service-areas/[slug]/page.tsx`.
-- Page templates: service detail template, service-area template, static landing/service/project/review/about/contact pages.
-- Metadata handling: `lib/seo.ts` centralizes title, description, canonical, Open Graph, Twitter, and keywords.
-- Sitemap/robots setup: `app/sitemap.ts` and `app/robots.ts` generate route lists from `company.siteUrl`, `services`, and `areas`.
-- Structured data: LocalBusiness, Service, FAQPage, and BreadcrumbList helpers are present.
-- Internal linking patterns: header links to key static pages and page anchors; footer links to core services; service-area pages link to related services; service pages link to related projects.
-- Content structure: homepage service cards, service detail sections, FAQ blocks, project proof, reviews, service-area pages.
-- Existing SEO utilities: `buildMetadata`, `localBusinessSchema`, `faqSchema`, `breadcrumbSchema`, `serviceSchema`.
-- Docs/conventions: no SEO-specific docs found.
+The production site returned HTTP 200, allowed crawling, declared an apex-host sitemap, and exposed 14 sitemap URLs. The local baseline crawl found no broken internal links or duplicate titles, but only 1 of 8 priority-query checks had both intent-matched headings and a direct answer.
 
-## Target Queries
+Live visibility was uneven:
 
-| Query/question | Search intent | Best matching page on this site | Is the page indexable? | Is the page answer-ready? | Title quality | Meta description quality | H1 quality | Internal link support | Structured data present? | Source/citation strength | Traditional search visibility notes | AI answer engine visibility notes | Priority score | Recommended fix |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---:|---|
-| Kansas City deck builder | Local commercial | `/services/deck-building` | Yes | Medium | Strong | Strong | Medium | Medium | Yes | Medium | Live canonical used `www` while live host redirects to apex; this can dilute canonical clarity. | FAQ and service copy help, but early concise answer could be stronger. | 95 | Align generated canonical/sitemap/schema URL host to live apex host. |
-| deck rebuild Kansas City | Local commercial | `/services/deck-building` | Yes | Medium | Strong | Strong | Medium | Medium | Yes | Medium | Page targets rebuilds in copy and FAQs. | Needs a clearer one-sentence answer block near top. | 86 | Add direct answer block in a later iteration. |
-| Kansas City remodeling contractor | Local commercial | `/services/remodeling` | Yes | Medium | Strong | Strong | Medium | Medium | Yes | Medium | Page has service relevance but broad remodel wording. | Needs clearer scope examples and trust signals. | 78 | Expand answer-ready remodel copy in a later iteration. |
-| basement finishing Kansas City | Local commercial | `/services/remodeling` | Yes | Medium | Medium | Medium | Medium | Low | Yes | Medium | Query maps to remodeling but title does not mention basement finishing. | FAQ mentions basement finishing; top copy could be more explicit. | 73 | Consider basement-specific section or page if business priority confirms. |
-| trim carpenter Kansas City | Local commercial | `/services/interior-carpentry` | Yes | Medium | Strong | Strong | Medium | Medium | Yes | Medium | Page targets trim and finish carpentry. | Needs concise definitions and examples near top. | 75 | Add answer block and stronger internal anchor text later. |
-| Overland Park deck builder | Local commercial | `/service-areas/overland-park` | Yes | Low | Medium | Medium | Weak | Medium | Breadcrumb only | Low | Service-area page exists but H1 is only the city name. | Thin answer context for AI summaries. | 71 | Strengthen area H1/content in a later iteration. |
-| ZJ Carpentry phone number | Brand/contact | `/contact` | Yes | High | Medium | Strong | Medium | Strong | LocalBusiness sitewide | High | Contact details are visible. | Easy to extract phone/email/service area. | 68 | Add schema phone consistency checks in later iteration. |
+- Google indexed the homepage and several service pages.
+- A Google AI Overview for the exact brand/service query cited the homepage, deck page, and contact page and extracted the service list and contact details correctly.
+- The general web-search benchmark did not surface ZJ Carpentry for the unbranded `Kansas City deck builder` result set collected during the audit.
+- Bing did not return ZJ Carpentry for the exact quoted brand/service query.
+- Bing Copilot said it had no verified information for that same exact-brand query.
 
-## Baseline Findings
+## Gap ranking
 
-1. High impact: Generated canonical, sitemap, robots sitemap reference, and LocalBusiness URL used `https://www.zjcarpentry.com`, while live requests to `www` redirect to `https://zjcarpentry.com`.
-2. Medium impact: Several priority pages are service-relevant but lack compact answer blocks near the top.
-3. Medium impact: Service-area page H1s are city-only, which weakens page intent for city + service queries.
-4. Medium impact: Footer anchor text maps `/services/remodeling` to "Flooring" and `/services/interior-carpentry` to "Custom Build", which is less precise than the target page intent.
-5. Low/medium impact: Live search result visibility and AI answer inclusion could not be directly verified from this environment; repo inspection and live metadata checks were used as the first-pass audit.
+| Rank | Gap | Expected impact | Confidence | Resolution |
+|---:|---|---|---|---|
+| 1 | Flooring and basement finishing were advertised but had no dedicated answer pages | High | High | Added dedicated service pages |
+| 2 | Priority service and area H1s did not directly match local search intent | High | High | Rewritten titles, H1s, and opening answers |
+| 3 | City pages contained SEO/process language instead of homeowner-facing answers | High | High | Replaced with direct service summaries and real local project evidence |
+| 4 | Service and city pages did not form a reciprocal internal-link graph | Medium-high | High | Added descriptive service-to-city and city-to-service links |
+| 5 | Business entity data did not match the independent BBB listing | Medium-high | High | Added legal name, alternate name, Raytown locality, and BBB `sameAs` citation |
+| 6 | Service schema encoded served cities as slugs and did not reference a stable business entity | Medium | High | Added business `@id`, service URLs, and City objects |
+| 7 | Project claims lacked visible first-party source attribution | Medium | High | Added project-evidence sections and portfolio source links |
+| 8 | Unsupported `Established 1994` claim conflicted with the public business record | Medium | High | Removed the claim |
+| 9 | Quote form omitted the two new priority services | Medium | High | Added basement finishing and flooring options |
 
-## Issue Ranking
+## Iterations
 
-| Issue | Impact | Confidence | Effort | Risk | Status |
-|---|---|---|---|---|---|
-| Canonical host mismatch between generated SEO URLs and live apex host | High | High | Small | Low | Resolved in iteration 1 |
-| Missing concise answer blocks on priority service pages | Medium | High | Medium | Low | Remaining |
-| Service-area H1s are city-only instead of city + service intent | Medium | Medium | Medium | Medium | Remaining |
-| Footer service anchor text is imprecise | Medium | High | Small | Low | Resolved in iteration 2 |
-| Need live SERP and AI-answer benchmark outside this environment | Medium | Medium | Large | Low | Blocked by tooling |
+### Iteration 1 — intent coverage and content graph
 
-## Current Iteration
+- Added `/services/flooring` and `/services/basement-finishing`.
+- Added unique SEO titles, local-intent H1s, concise opening answers, FAQs, proof points, and project examples.
+- Rewrote all five service-area pages with homeowner-facing copy.
+- Added location-specific project evidence to every area page.
+- Added reciprocal, descriptive internal links between services and service areas.
+- Added project-portfolio source attribution.
 
-- Iteration: 2
-- Selected issue: Footer service anchor text was less precise than the destination page intent.
-- Why selected: It is a low-risk internal-linking fix that reinforces priority service pages with exact service language.
-- Files changed: `components/site-footer.tsx`
-- Validation commands run: `npm run typecheck`, `npm run build`
+Result: sitemap increased from 14 to 16 URLs; the benchmark improved from 1/8 to 8/8.
 
-## Iteration History
+### Iteration 2 — metadata and hub alignment
 
-| Iteration | Selected issue | Files changed | Result |
-|---:|---|---|---|
-| 1 | Canonical host mismatch | `lib/site-data.ts` | Resolved |
-| 2 | Footer service anchor text | `components/site-footer.tsx` | Resolved |
+- Updated the services hub to name all five priority services.
+- Shortened priority meta descriptions to 160 characters or fewer.
+- Tightened Leawood and Lee's Summit opening answers.
 
-## Fixes Made
+Result: no long priority descriptions; all priority pages retained one clear H1 and unique titles.
 
-- Updated `company.siteUrl` from `https://www.zjcarpentry.com` to `https://zjcarpentry.com`.
-- Generated `sitemap.xml`, `robots.txt`, homepage canonical/schema, and deck-service canonical/schema now use `https://zjcarpentry.com`.
-- Updated footer internal links from generic/mismatched labels to `Deck Building`, `Remodeling`, and `Interior Carpentry`.
+### Iteration 3 — entity and citation quality
 
-## Validation Commands
+- Matched structured data to the verified legal name `Z&J Carpentry & More, LLC`.
+- Added `ZJ Carpentry` and `Z & J Carpentry` as alternate names.
+- Added the Raytown, Missouri locality and the BBB profile as a `sameAs` identity citation.
+- Linked the BBB profile visibly from the About page.
+- Removed the unsupported `Established 1994` badge.
+- Added basement finishing and flooring to the quote form.
 
-- Passed: `npm run typecheck`
-- Passed: `npm run build`
-- Not run successfully: `npm run lint` fails before linting because `next lint` is treated as an invalid project directory in Next.js 16.2.1.
-- Passed static inspection: `.next/server/app/sitemap.xml.body` and `.next/server/app/robots.txt.body` use the apex host.
-- Passed static inspection: `.next/server/app/index.html` and `.next/server/app/services/deck-building.html` include apex-host canonical and LocalBusiness URL output.
-- Note: one parallel `npm run typecheck` attempt failed while `npm run build` was regenerating `.next/types`; rerunning typecheck after build passed.
+Result: the repo now contains a consistent, externally cited entity definition ready for deployment and recrawl.
 
-## Rerun Benchmark
+## Final crawl
 
-| Query/question | Previous issue | After iterations | Resolved? | Next recommendation |
-|---|---|---|---|---|
-| Kansas City deck builder | Canonical/sitemap/schema host mismatch on best matching service page | Generated canonical, schema URL, sitemap loc, and robots sitemap now align to live apex host. | Yes | Add direct answer block to `/services/deck-building`. |
-| deck rebuild Kansas City | Same host mismatch plus only medium answer-readiness | Host mismatch resolved; answer-readiness still medium. | Partially | Add concise rebuild-specific copy near top of deck page. |
-| Kansas City remodeling contractor | Same host mismatch plus broad copy | Host mismatch resolved; content specificity remains next issue. | Partially | Add answer block and stronger remodel scope examples. |
-| trim carpenter Kansas City | Same host mismatch plus medium answer-readiness | Host mismatch resolved; answer-readiness still medium. | Partially | Add concise finish-carpentry examples and answer block. |
-| Footer internal service links | Anchor text did not match target page intent | Footer links now use exact service names. | Yes | Monitor after deploy and include in crawl check. |
+| Check | Result |
+|---|---:|
+| Sitemap URLs | 16 |
+| Non-200 pages | 0 |
+| Broken internal links | 0 |
+| Duplicate titles | 0 |
+| Pages without exactly one H1 | 0 |
+| Missing canonicals | 0 |
+| Invalid JSON-LD blocks | 0 |
+| Service pages missing Service schema | 0 |
+| Priority service descriptions over 160 characters | 0 |
 
-## Remaining Issues
+Robots remains crawlable and declares the apex-host sitemap. Every sitemap page uses the apex-host canonical.
 
-- Add concise answer-ready blocks to priority service pages.
-- Strengthen city service-area page intent without creating thin doorway content.
-- Run a live SERP and AI-answer benchmark with tools/accounts that can access those engines directly.
+## Final priority-query benchmark
 
-## Stop Condition Status
+| Query | Answer-ready page | Indexable | Intent matched | Direct answer |
+|---|---|---:|---:|---:|
+| Kansas City deck builder | `/services/deck-building` | Yes | Yes | Yes |
+| deck rebuild Kansas City | `/services/deck-building` | Yes | Yes | Yes |
+| Kansas City remodeling contractor | `/services/remodeling` | Yes | Yes | Yes |
+| basement finishing Kansas City | `/services/basement-finishing` | Yes | Yes | Yes |
+| trim carpenter Kansas City | `/services/interior-carpentry` | Yes | Yes | Yes |
+| flooring installation Kansas City | `/services/flooring` | Yes | Yes | Yes |
+| Overland Park deck builder | `/service-areas/overland-park` | Yes | Yes | Yes |
+| ZJ Carpentry phone number | `/contact` | Yes | Yes | Yes |
 
-- No critical crawlability/indexation issues remain: Resolved for the identified canonical host mismatch; live post-deploy recheck still needed
-- Every priority query maps to a clear answer-ready page: Not yet
-- Priority pages have unique, intent-matched titles and descriptions: Mostly
-- Internal links support priority pages: Improved; service footer links now use exact-match service labels
-- Structured data is present where appropriate: Mostly
-- No high-impact content gap remains in the benchmark: Not yet
+Final score: 8/8. Baseline score: 1/8.
 
-## Suggested Next Iteration
+## Exit criteria
 
-Fix the next highest-confidence content issue: add concise answer-ready blocks near the top of priority service pages, starting with `/services/deck-building` for `Kansas City deck builder` and `deck rebuild Kansas City`.
+- No critical crawlability or indexation defect in the built site: passed.
+- Every priority query maps to a clear, answer-ready page: passed.
+- Priority pages have unique intent-matched metadata and one H1: passed.
+- Internal links support the service/location topic graph: passed.
+- Structured data is valid and references a stable external business identity: passed.
+- No high-impact repo-side content or technical gap remains: passed.
+
+## External follow-up
+
+Bing and Bing Copilot still fail the exact-brand benchmark against the currently deployed version. The entity and content fixes in this repository are not live yet, and the workspace is not linked to a Netlify site. After deployment, submit or refresh the sitemap in Bing Webmaster Tools and Google Search Console, then rerun the exact same Google, Google AI Overview, Bing, and Bing Copilot query. Ranking for unbranded competitive queries also depends on off-site authority, verified reviews, and recrawl time; it cannot be proven from a local build.

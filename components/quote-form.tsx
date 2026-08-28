@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 
-const serviceOptions = ["Deck Building", "Remodeling", "Interior Carpentry"] as const;
+const serviceOptions = [
+  "Deck Building",
+  "Basement Finishing",
+  "Remodeling",
+  "Flooring",
+  "Interior Carpentry",
+] as const;
 const contactOptions = [
   { value: "call", label: "Call" },
   { value: "text", label: "Text" },
@@ -76,7 +82,7 @@ export function QuoteForm() {
       <div className="quote-form-trust">
         <span>Kansas City metro</span>
         <span>Fast follow-up</span>
-        <span>Decks, remodels, and interior work</span>
+        <span>Decks, basements, flooring, and interior work</span>
       </div>
 
       <div className="quote-form-section">

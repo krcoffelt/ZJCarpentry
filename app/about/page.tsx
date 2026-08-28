@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
+import { company } from "@/lib/site-data";
 
 export const metadata = buildMetadata({
   title: "About",
@@ -30,6 +32,10 @@ export default function AboutPage() {
           <p>
             Service covers Kansas City and nearby suburbs including Overland
             Park, Leawood, Olathe, and Lee&apos;s Summit.
+          </p>
+          <p>
+            Independent business listing: {" "}
+            <Link href={company.sameAs[0]}>BBB Business Profile</Link>.
           </p>
         </div>
       </div>

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ProjectCard } from "@/components/project-card";
 import { QuoteForm } from "@/components/quote-form";
 import { SchemaScript } from "@/components/schema-script";
 import { breadcrumbSchema, buildMetadata } from "@/lib/seo";
-import { getArea, getService } from "@/lib/site-data";
+import { getArea, getRelatedProjects, getService } from "@/lib/site-data";
 
 type AreaPageProps = {
   params: Promise<{ slug: string }>;
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: AreaPageProps) {
   }
 
   return buildMetadata({
-    title: `${area.name} Service Area`,
+    title: `${area.name} Deck Builder & Remodeler`,
     description: area.intro,
     path: `/service-areas/${area.slug}`,
   });
@@ -36,6 +37,8 @@ export default async function AreaPage({ params }: AreaPageProps) {
   if (!area) {
     notFound();
   }
+
+  const localProjects = getRelatedProjects(area.projectSlugs);
 
   return (
     <>
@@ -50,7 +53,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
         <div className="shell page-hero">
           <div>
             <p className="eyebrow">Service Area</p>
-            <h1>{area.name}</h1>
+            <h1>{area.heading}</h1>
             <p className="hero-copy">{area.intro}</p>
             <ul className="service-points">
               {area.highlights.map((highlight) => (
@@ -83,10 +86,38 @@ export default async function AreaPage({ params }: AreaPageProps) {
                 <p className="eyebrow">Related Service</p>
                 <h2>{service.serviceName}</h2>
                 <p>{service.heroCopy}</p>
-                <Link href={`/services/${service.slug}`}>View Service</Link>
+                <Link href={`/services/${service.slug}`}>
+                  {service.serviceName} in {area.name}
+                </Link>
               </article>
             );
           })}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="shell editorial-intro">
+          <div>
+            <p className="eyebrow">Project Evidence</p>
+            <h2>Recent work in {area.name}.</h2>
+          </div>
+          <p className="section-copy">
+            First-party project examples show the location, scope, and type of work completed.
+          </p>
+        </div>
+        <div className="shell project-grid">
+          {localProjects.map((project) => (
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              imageSizes="(max-width: 1100px) 100vw, 48vw"
+            />
+          ))}
+        </div>
+        <div className="shell">
+          <p className="section-copy">
+            Source: <Link href="/projects">ZJ Carpentry project portfolio</Link>.
+          </p>
         </div>
       </section>
 

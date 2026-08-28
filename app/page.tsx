@@ -22,8 +22,8 @@ const serviceCards = [
   {
     title: "Precision Flooring",
     body: "Hardwood and flooring installation for homeowners looking for a clean finish and dependable project execution.",
-    cta: "Hardwood Refinishing",
-    href: "/services/remodeling",
+    cta: "View Flooring Services",
+    href: "/services/flooring",
     image: photoLibrary.flooring,
     alt: "Precision flooring",
     bullets: ["New floor installation", "Floor replacement", "Clean, finished look"],
@@ -70,7 +70,7 @@ export default function HomePage() {
         <div className="desktop-hero-overlay" />
         <div className="desktop-shell desktop-hero-content">
           <div className="desktop-hero-copy">
-            <span className="desktop-est-badge">Established 1994</span>
+            <span className="desktop-est-badge">Kansas City Metro Contractor</span>
             <p className="desktop-overline">Serving Kansas City And Nearby Suburbs</p>
             <h1>
               <span className="desktop-hero-line">Deck &amp; Remodel</span>
@@ -129,6 +129,9 @@ export default function HomePage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              <Link className="desktop-inline-link" href={serviceCards[1].href}>
+                {serviceCards[1].cta}
+              </Link>
             </article>
 
             <article className="desktop-gold-card">
@@ -187,7 +190,7 @@ export default function HomePage() {
           <div className="desktop-testimonial-intro">
             <p className="desktop-testimonial-kicker">Client Reviews</p>
             <h2 className="two-line-lock">
-              <span>What Homeowners Say</span>
+              <span>What Homeowners</span>
               <span>In Kansas City</span>
             </h2>
             <p>
